@@ -1,0 +1,140 @@
+<pre><code>
+clc; clear;
+%MMABP
+    % # of pieces in a row we are looking for
+    N=4;
+    P1 = 1;
+    P2 = 2; %AI = 2
+    
+    % Starting game board; P1 is 1, P2 is 2
+    win1 = false;
+    
+    win2 = false;
+    board = [0 0 0 0 0 0 0;
+             0 0 0 0 0 0 0;
+             0 0 0 0 0 0 0;
+             0 0 0 0 0 0 0;
+             0 0 0 0 0 0 0;
+             0 0 0 0 0 0 0];
+    [rows, cols] = size(board);
+    %disp(board)
+    turns = 0;
+    while true
+        turns = turns + 1;
+        depth = min(6 + floor(turns / 4) * 2, 20); % Adjust 20 to a higher max depth if needed
+%**************************************************************************
+%AI4 Algorithm
+Bestmove1 = connect4_ai_MMABP(board,depth);
+%**************************************************************************
+    
+    %When AI is implemented, the position it choses will be input here
+    %instead of "input('Player 1 move:');"
+    P1Move = Bestmove1; %input('Player 1 move:');
+    %Take that coloumn of the board and turn it into a row vector
+    rowVec = board(:,P1Move)';
+    %create a vector made of the indecies where the rowvector is empty (0)
+    Piece = find(rowVec==0);
+    %Add a 1 into the rowvector @ the length of the zero vector
+    rowVec(Piece(end)) = 1;
+    %replace column in the board with the rowvector turned back into a
+    %coloumn vector
+    board(:,P1Move) = rowVec';
+    disp(board)
+
+        %Check horizontals for 4 in a row
+        piece = 1;
+        for r = 1:rows
+            for c = 1:cols - (N - 1)
+                if all(board(r, c:c + (N - 1)) == piece)
+                    win1 = true;
+                end
+            end        
+        end
+        %Check verticles for 4 in a row
+        for r = 1:rows - (N - 1)
+            for c = 1:cols
+                if all(board(r:r + (N - 1), c) == piece)
+                    win1 = true;  
+                end
+            end
+        end
+        %Check down-right diagonals for 4 in a row
+        for r = 1:rows - (N - 1)
+            for c = 1:cols - (N - 1)
+                if all(diag(board(r:r + (N - 1), c:c + (N - 1))) == piece)
+                    win1 = true;
+                end
+            end
+        end
+        %Check down-left diagonals for 4 in a row
+        for r = (N):rows
+            for c = 1:cols - (N - 1)
+                if all(diag(flipud(board(r - (N - 1):r, c:c + (N - 1)))) == piece)
+                    win1 = true;
+                end
+            end
+        end
+        %End the game if 4 in a row is reached
+        if win1 == true
+            fprintf('Player 1 wins!!!');
+            break
+        end
+
+%**************************************************************************
+%AI4 Algorithm
+%Bestmove2 = connect4_ai_MMABP(board,depth);
+%**************************************************************************
+
+    %Each player will enter an input of 1,2,3,4,5, or 6 
+    P2Move = input('Player 2 move:'); %P2Move = Bestmove2;
+    %Take that coloumn of the board and turn it into a row vector
+    rowVec = board(:,P2Move)';
+    %create a vector made of the indecies where the rowvector is empty (0)
+    Piece = find(rowVec==0);
+    %Add a 2 into the rowvector @ the length of the zero vector
+    rowVec(Piece(end)) = 2;
+    %replace column in the board with the rowvector turned back into a
+    %coloumn vector
+    board(:,P2Move) = rowVec';
+    disp(board)
+
+        %Check horizontals for 4 in a row
+        piece = 2;
+        for r = 1:rows
+            for c = 1:cols - (N - 1)
+                if all(board(r, c:c + (N - 1)) == piece)
+                    win2 = true;
+                end
+            end        
+        end
+        %Check verticles for 4 in a row
+        for r = 1:rows - (N - 1)
+            for c = 1:cols
+                if all(board(r:r + (N - 1), c) == piece)
+                    win2 = true;
+                end
+            end
+        end
+        %Check down-right diagonals for 4 in a row
+        for r = 1:rows - (N - 1)
+            for c = 1:cols - (N - 1)
+                if all(diag(board(r:r + (N - 1), c:c + (N - 1))) == piece)
+                    win2 = true;
+                end
+            end
+        end
+        %Check down-left diagonals for 4 in a row
+        for r = (N):rows
+            for c = 1:cols - (N - 1)
+                if all(diag(flipud(board(r - (N - 1):r, c:c + (N - 1)))) == piece)
+                    win2 = true;
+                end
+            end
+        end
+        %End the game if 4 in a row is reached
+        if win2 == true
+            fprintf('Player 2 wins!!!');
+            break
+        end
+end
+</code></pre>
