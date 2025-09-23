@@ -14,14 +14,14 @@
   }
 
   body {
-    background: linear-gradient(180deg, #143417, #143417);
+    background: linear-gradient(180deg, #111111, #111111);
     color: #ffffff;
     line-height: 1.6;
     transition: background 0.5s;
   }
 
   body.scrolled {
-    background: linear-gradient(180deg, #143417, #0a170c);
+    background: linear-gradient(180deg, #111111, #111111);
   }
 
   a {
@@ -40,12 +40,12 @@
   .hero {
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* vertically centers */
+    justify-content: flex-start; /* moves content to the left */
     height: 100vh;
-    text-align: center;
-    background: url("background.jpg") no-repeat center center/cover; /* swap with your background */
+    text-align: left;
+    padding-left: 8%; /* margin from the left */
+    background: url("Blueprint_background.jpg") no-repeat center center/cover;
     overflow: hidden;
   }
 
@@ -53,19 +53,20 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 10, 30, 0.55); /* dark overlay */
+    background: rgba(10, 10, 30, 0.55);
     z-index: 1;
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
+    max-width: 500px; /* keeps text from stretching too wide */
   }
 
   .hero .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border-radius: 12px; /* square with slight rounding */
     object-fit: cover;
     border: 3px solid #000000;
     box-shadow: 0 6px 20px rgba(0,0,0,0.6);
@@ -116,7 +117,7 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #000000;
-    margin-top: 8px; /* push small pic slightly down */
+    margin-top: 8px;
   }
 
   .profile-info h1 {
@@ -132,7 +133,7 @@
 
   /* Header shrink when visible */
   .header-bar.visible {
-    top: 0; /* slides in when scrolling */
+    top: 0;
     background-color: #222;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     padding: 8px 20px;
@@ -210,8 +211,19 @@
   }
 
   @media (max-width: 500px) {
+    .hero {
+      padding-left: 5%;
+      justify-content: center; /* re-center for mobile */
+      text-align: center;
+    }
+
     .hero h1 {
       font-size: 2rem;
+    }
+
+    .hero .profile-pic {
+      width: 160px;
+      height: 160px;
     }
   }
 </style>
@@ -224,6 +236,11 @@
     <img src="Jaffe_Alexander.jpg" alt="Alexander Jaffe" class="profile-pic">
     <h1>Alexander Jaffe</h1>
     <p>Mechanical Engineer</p>
+    <h2>
+      <a href="mailto:jaffea1@ufl.edu">Email |</a>
+      <a href="https://github.com/AlexJaffe-design" target="_blank">GitHub |</a>
+      <a href="https://www.linkedin.com/in/alexander-jaffe/" target="_blank">LinkedIn</a>
+    </h2>
   </div>
 </section>
 
@@ -238,8 +255,8 @@
       </div>
     </div>
     <div class="contact-links">
-      <a href="mailto:jaffea1@ufl.edu">Email</a>
-      <a href="https://github.com/AlexJaffe-design" target="_blank">GitHub</a>
+      <a href="mailto:jaffea1@ufl.edu">Email |</a>
+      <a href="https://github.com/AlexJaffe-design" target="_blank">GitHub |</a>
       <a href="https://www.linkedin.com/in/alexander-jaffe/" target="_blank">LinkedIn</a>
     </div>
   </div>
