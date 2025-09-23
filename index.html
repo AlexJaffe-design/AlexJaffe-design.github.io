@@ -31,6 +31,23 @@
     padding: 40px 20px;
   }
 
+  .profile-pic {
+  width: 70px;              /* bigger circle */
+  height: 70px;             /* keep square for perfect circle */
+  border-radius: 50%;       /* circular shape */
+  margin-right: 15px;
+  object-fit: cover;        /* ensures photo fills circle */
+  border: 2px solid #1e90ff; /* accent border */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* subtle shadow for depth */
+  transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  /* Optional: add hover effect on the photo */
+  .profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  }
+
   /* Header */
   header {
     text-align: center;
