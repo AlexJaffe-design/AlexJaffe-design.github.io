@@ -505,14 +505,25 @@
       document.body.classList.remove('scrolled');
     }
   });
-
-  Dos(document.getElementById("doom-container"), {
-    wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
-    onload: (dosbox) => {
-        dosbox.run("doom/DOOM.EXE"); // path to your .EXE
-    }
-  });
 </script>
+
+<div id="doom-container" style="width:640px; height:480px;"></div>
+
+<script src="https://js-dos.com/js-dos.js"></script>
+<script>
+    function startDoom() {
+        Dos(document.getElementById("doom-container"), {
+            wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+            onload: (dosbox) => {
+                dosbox.run("doom/DOOM.EXE");
+            }
+        });
+    }
+
+    // example trigger
+    startDoom();
+</script>
+
 
 </body>
 </html>
