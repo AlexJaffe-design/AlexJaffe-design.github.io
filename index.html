@@ -507,21 +507,14 @@
   });
 </script>
 
-<!--I DID NOT WRITE THIS LOL-->
+<!--HEY! GET OUT OF MY CODE!!!!-->
 <script>
-  // Define your secret arrow key sequence
+  // Konami code
   const SECRET_CODE = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight"];
-  
-  // Array to store keys pressed
   let typedKeys = [];
-
-  // Listen for keydown events
   document.addEventListener("keydown", (e) => {
     typedKeys.push(e.key);
-    
-    // Keep only the last N keys (length of secret code)
     typedKeys = typedKeys.slice(-SECRET_CODE.length);
-
     // Check if the secret code is matched
     if(typedKeys.join(",") === SECRET_CODE.join(",")) {
       activateEasterEgg();
@@ -529,14 +522,10 @@
     }
   });
 
-  // Function to trigger your Easter egg
+  // Function to trigger
   function activateEasterEgg() {
     alert("Secret code entered! Launching Doom...");
-    // Example: open Wad Commander
     window.open("https://wadcmd.com/", "_blank");
-
-    // Or if using embedded JS-DOS, call startDoom();
-    // startDoom();
   }
 </script>
 
