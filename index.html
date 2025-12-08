@@ -453,7 +453,7 @@
     </style>
 
     <div class="project-card">
-      <a href="Doom.html" class="button">
+      <a href="3Dprinter.html" class="button">
         <img src="3Dprinter.jpg" alt="Project 6">
         <div class="project-content">
           <h3>3DGTR</h3>
@@ -505,6 +505,39 @@
       document.body.classList.remove('scrolled');
     }
   });
+</script>
+
+<!--I DID NOT WRITE THIS LOL-->
+<script>
+  // Define your secret arrow key sequence
+  const SECRET_CODE = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight"];
+  
+  // Array to store keys pressed
+  let typedKeys = [];
+
+  // Listen for keydown events
+  document.addEventListener("keydown", (e) => {
+    typedKeys.push(e.key);
+    
+    // Keep only the last N keys (length of secret code)
+    typedKeys = typedKeys.slice(-SECRET_CODE.length);
+
+    // Check if the secret code is matched
+    if(typedKeys.join(",") === SECRET_CODE.join(",")) {
+      activateEasterEgg();
+      typedKeys = []; // reset
+    }
+  });
+
+  // Function to trigger your Easter egg
+  function activateEasterEgg() {
+    alert("Secret code entered! Launching Doom...");
+    // Example: open Wad Commander
+    window.open("https://wadcmd.com/", "_blank");
+
+    // Or if using embedded JS-DOS, call startDoom();
+    // startDoom();
+  }
 </script>
 
 </body>
