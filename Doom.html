@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My GitHub Page with Doom Easter Egg</title>
+    <script src="https://js-dos.com/js-dos.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #doom-container {
+            width: 640px;
+            height: 480px;
+            margin: 20px auto;
+            opacity: 0; /* hidden initially */
+            transition: opacity 0.5s;
+        }
+
+        #secret-code {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        #unlock-button {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my site!</h1>
+    <p>Try finding the hidden Easter egg!</p>
+
+    <!-- Secret code input -->
+    <input type="text" id="secret-code" placeholder="Enter secret code">
+    <button id="unlock-button">Unlock</button>
+
+    <!-- Doom container -->
+    <div id="doom-container"></div>
+
+    <script>
+        // Secret code logic
+        document.getElementById("unlock-button").addEventListener("click", () => {
+            const code = document.getElementById("secret-code").value.trim();
+            if(code.toUpperCase() === "IDDQD") { // your secret code
+                const doomContainer = document.getElementById("doom-container");
+                doomContainer.style.opacity = 1; // reveal the game
+                startDoom();
+            } else {
+                alert("Wrong code!");
+            }
+        });
+
+        // Function to start Doom via JS-DOS
+        function startDoom() {
+            Dos(document.getElementById("doom-container"), {
+                wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+                onload: (dosbox) => {
+                    dosbox.run("DooM/DOOM.EXE"); // make sure files are in doom/
+                }
+            });
+        }
+    </script>
+</body>
+</html>

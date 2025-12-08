@@ -453,7 +453,7 @@
     </style>
 
     <div class="project-card">
-      <a href="3Dprinter.html" class="button">
+      <a href="Doom.html" class="button">
         <img src="3Dprinter.jpg" alt="Project 6">
         <div class="project-content">
           <h3>3DGTR</h3>
@@ -506,24 +506,6 @@
     }
   });
 </script>
-
-<div id="doom-container" style="width:640px; height:480px;"></div>
-
-<script src="https://js-dos.com/js-dos.js"></script>
-<script>
-    function startDoom() {
-        Dos(document.getElementById("doom-container"), {
-            wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
-            onload: (dosbox) => {
-                dosbox.run("DooM/DOOM.EXE");
-            }
-        });
-    }
-
-    // example trigger
-    startDoom();
-</script>
-
 
 </body>
 </html>
