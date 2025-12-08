@@ -518,8 +518,8 @@
     % comutational power to see further ahead while not taking 20 minutes per 
     % turn (It did do this at one point, and yes I waited and timed it).
     % Ultimately, this alternate form of center control allows us to prioritize
-    % center control unless the algorithm spots a better path forward that keep 
-    % the chips as close to the center as possible.
+    % center control while giving the algorithm some leeway to find a more optimal 
+    % path forward that isnt necessarily in the perfect center.
 
     % Function to prioritize center control with a gradual bias
     function bias = center_control(board, piece)
