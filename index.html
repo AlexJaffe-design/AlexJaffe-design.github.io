@@ -505,6 +505,13 @@
       document.body.classList.remove('scrolled');
     }
   });
+
+  Dos(document.getElementById("doom-container"), {
+    wdosboxUrl: "https://js-dos.com/6.22/current/wdosbox.js",
+    onload: (dosbox) => {
+        dosbox.run("doom/DOOM.EXE"); // path to your .EXE
+    }
+  });
 </script>
 
 </body>
