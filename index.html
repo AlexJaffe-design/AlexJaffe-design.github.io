@@ -488,19 +488,19 @@
   </div>
 
   <div class="secret-code">
-     <div id="vertical-text">↑↑↓↓←→←→</div>
+    <div id="vertical-text">↑↑↓↓←→←→</div>
     <style>
       #vertical-text {
-          position: fixed;          /* keeps the text in place even when scrolling */
-          left: 0;                  /* positions it at the very left edge of the screen */
-          top: 50%;                 /* vertical center */
-          transform: translateY(-50%);  /* exact vertical centering */
-          writing-mode: vertical-rl;     /* makes letters flow top-to-bottom */
-          text-orientation: upright;     /* keeps each letter upright, not rotated */
-          font-size: 24px;          /* size of the text */
-          font-weight: bold;        /* makes it bold */
-          color: #333;              /* text color */
-          z-index: 1000;            /* keeps it on top of other elements */
+          position: fixed;          
+          left: 0;                  
+          top: 30%;                 
+          transform: translateY(0%);  
+          writing-mode: vertical-rl;     
+          text-orientation: upright;     
+          font-size: 24px;          
+          font-weight: bold;        
+          color: #464646;              
+          z-index: 1000;            
       }
     </style>
   </div>
@@ -543,8 +543,13 @@
 
   // Function to trigger
   function activateEasterEgg() {
-    alert("Secret code entered! Launching Doom...");
-    window.open("https://wadcmd.com/", "_blank");
+    document.getElementById("vertical-text").style.color = "limegreen";
+    document.getElementById("vertical-text").style.fontSize = "48px";
+    document.getElementById("vertical-text").style.top = "10%";     
+      setTimeout(() => {
+          //alert("Secret code entered! Launching Doom...");
+          window.open("https://wadcmd.com/", "_blank");
+      }, 1500); // delay in milliseconds (500 = 0.5s)
   }
 </script>
 
