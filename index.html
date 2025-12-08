@@ -502,6 +502,17 @@
           color: #464646;              
           z-index: 1000;            
       }
+            /* Pulse animation */
+      @keyframes arcadePulse {
+          0%   { transform: translateY(-50%) scale(1); }
+          50%  { transform: translateY(-50%) scale(1.2); }
+          100% { transform: translateY(-50%) scale(1); }
+      }
+
+      /* Applied dynamically after secret code */
+      .pulse {
+          animation: arcadePulse 0.6s infinite;
+      }
     </style>
   </div>
 
@@ -543,9 +554,12 @@
 
   // Function to trigger
   function activateEasterEgg() {
-    document.getElementById("vertical-text").style.color = "limegreen";
-    document.getElementById("vertical-text").style.fontSize = "48px";
-    document.getElementById("vertical-text").style.top = "10%";     
+      const text = document.getElementById("vertical-text");
+        text.style.color = "limegreen";
+        text.style.fontSize = "48px";
+        text.style.top = "50%";
+        // Start pulsing effect
+        text.classList.add("pulse");    
       setTimeout(() => {
           //alert("Secret code entered! Launching Doom...");
           window.open("https://wadcmd.com/", "_blank");
