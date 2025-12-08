@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <title>Tabbed MMABP MATLAB Code</title>
   <style>
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between; /* pushes GIF to the right */
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-text {
+        font-family: 'Consolas', 'Courier New', monospace;
+        margin: 0; /* removes extra spacing */
+    }
+
+    .tenor-gif-embed {
+        margin-left: 20px; /* optional spacing */
+    }
+
+
+
     body {
       background-color: #b1efe7; /* light gray */
     }
@@ -42,9 +60,18 @@
 </head>
 <body>
 
-<h1 style="font-family: 'Consolas', 'Courier New', monospace;">Connect 4 Winning Algorithm!! (Most of the Time)</h1>
+<div class="header-wrapper">
+    <h1 class="header-text">Connect 4 Winning Algorithm!! (Most of the Time)</h1>
 
-<!-- Tabs -->
+    <div class="tenor-gif-embed" data-postid="7137479751169960912" data-share-method="host" data-aspect-ratio="1.01852" data-width="7%">
+        <a href="https://tenor.com/view/happy-friday-penguin-dancing-animal-happy-gif-7137479751169960912">Happy Friday Penguin Sticker</a>
+        from <a href="https://tenor.com/search/happy+friday-stickers">Happy Friday Stickers</a>
+    </div>
+</div>
+
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+    <!-- Tabs -->
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'Connect 4')">Connect 4</button>
   <button class="tablinks" onclick="openTab(event, 'MMABP Algorithm')">MMABP Algorithm</button>
