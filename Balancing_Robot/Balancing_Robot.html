@@ -132,9 +132,10 @@ We're so back. kinda. Rev 2 is here and a lot of design considerations went into
 wire up. I made it so the prototype board from the last version fits within the front of the casing. I also cut out a large portyion of the empty space to be more
 compact. Now the third and largest change is the knee joint housed around the top set of stepper motors. The stepper motors are supposed to be able to lift the robot
 and carry most of its weight, so it needs to be high torque i.e.: the problem from the first design. To try and solve this issue I incorporated a 4:1 planetary gear
-box on both of the lifting steppers and well as modifying the linkage geometry to better fit the motion I was looking for. Lastly, a change not shown in the pictures,
-I changed the stepper motor drivers on the board from A4988 drivers to TMC 2209 drivers. These should be able to handle the rapid changes in motor direction and long
-term use without overheating.
+box on both of the lifting steppers and well as modifying the linkage geometry to better fit the motion I was looking for. I got the ratio and linkage lengths after
+doing some calculations, but I slightly under estimated the weight each motor would be driving from a fixed position. This means they are still too weak to lift it,
+but far stronger than they were. Lastly, a change not shown in the pictures, I changed the stepper motor drivers on the board from A4988 drivers to TMC 2209 drivers.
+These should be able to handle the rapid changes in motor direction and longterm use without overheating.
     </pre></code>
     <div class="row">
         <img src="Balancing_Robot_2_CAD.jpg">
