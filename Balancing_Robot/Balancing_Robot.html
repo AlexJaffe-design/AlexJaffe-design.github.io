@@ -85,7 +85,7 @@
     <!-- Tabs -->
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'Prototype')">Prototype (Summer 2025)</button>
-  <button class="tablinks" onclick="openTab(event, 'Version 2')">Version 2</button>
+  <button class="tablinks" onclick="openTab(event, 'Version 2')">Version 2 (Winter Break 2025)</button>
 </div>
 
 <div id="Prototype" class="tabcontent" style="display:block;">
@@ -126,9 +126,26 @@ stands, it is very hard to put away or take with me when I travel because of the
     </div>
 </div>    
 
-<div id="Version 2" class="tabcontent">
+<div id="Version 2" class="tabcontent" style="display:block;">
+    <pre><code class="language-matlab"></code>
+We're so back. kinda. Rev 2 is here and a lot of design considerations went into it. For this version I made it a bit more compact so its easier to carry round and
+wire up. I made it so the prototype board from the last version fits within the front of the casing. I also cut out a large portyion of the empty space to be more
+compact. Now the third and largest change is the knee joint housed around the top set of stepper motors. The stepper motors are supposed to be able to lift the robot
+and carry most of its weight, so it needs to be high torque i.e.: the problem from the first design. To try and solve this issue I incorporated a 4:1 planetary gear
+box on both of the lifting steppers and well as modifying the linkage geometry to better fit the motion I was looking for. Lastly, a change not shown in the pictures,
+I changed the stepper motor drivers on the board from A4988 drivers to TMC 2209 drivers. These should be able to handle the rapid changes in motor direction and long
+term use without overheating.
+    </pre></code>
+    <div class="row">
+        <img src="Balancing_Robot_2_CAD.jpg">
+        <img src="Profile 1.jpg">
+        <img src="Profile 2.jpg">
+    </div>
+
     <pre><code class="language-matlab">
-Coming soon!
+Next problem: Find the short on the board stopping me from Compiling and uploading code to the ESP32. From there I can work on the balance control. After balance
+control is figure out I will come back to the torque issue on the lifting steppers. After that is figured out I will extend the linkages to make the robot taller
+and easier to balance. WOO!
     </code></pre>
 </div>
 
